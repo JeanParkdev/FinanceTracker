@@ -62,7 +62,14 @@ const resolvers = {
 
     addTransaction: async (parent, args, context) => {
       if (!context.user) throw new Error('Not authenticated');
-      return await Transaction.create({ ...args, userId: context.user._id });
+      const data = { ...args, userId: context.user._id };
+      if (data.date) {
+        const [year, month, day] = data.date.split('-');
+        data.date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+      } else {
+        data.date = new Date();
+      }
+      return await Transaction.create(data);
     },
 
     updateTransaction: async (parent, { _id, ...args }, context) => {
@@ -116,6 +123,10 @@ const resolvers = {
       if (!context.user) throw new Error('Not authenticated');
       return await Goal.findOneAndDelete({ _id, userId: context.user._id });
     },
+  },
+
+  Transaction: {
+    date: (parent) => parent.date ? new Date(parent.date).toISOString() : null,
   },
 };
 

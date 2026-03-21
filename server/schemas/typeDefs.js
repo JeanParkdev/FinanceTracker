@@ -69,6 +69,7 @@ const typeDefs = `
     updateGoal(_id: ID!, name: String, targetAmount: Float, currentAmount: Float, targetDate: String, isComplete: Boolean, notes: String): Goal
     deleteGoal(_id: ID!): Goal
   }
+  
 `;
 
 export default typeDefs;
