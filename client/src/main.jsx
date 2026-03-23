@@ -8,7 +8,7 @@ import { getToken } from './utils/auth.js';
 import { ThemeProvider } from './utils/ThemeContext.jsx';
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql',
+  uri: import.meta.env.VITE_API_URL ||'http://localhost:3001/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
