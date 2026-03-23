@@ -63,17 +63,6 @@ Finance Tracker is my attempt to build something that feels good to use — a to
 | bcrypt 6 | Password hashing |
 | dotenv 17 | Environment variable management |
 | cors 2 | Cross-origin resource sharing |
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js v18+
-- A [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) account (free tier works)
-
-**Open the app**
-
-Visit `http://localhost:5173`
 
 ---
 
