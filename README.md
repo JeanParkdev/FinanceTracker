@@ -36,7 +36,7 @@ Finance Tracker is my attempt to build something that feels good to use — a to
 
 ### Polish
 - 🔁 Mark transactions as recurring (daily, weekly, monthly)
-- 🌙 Dark mode toggle with soft charcoal theme
+- 🌙 Dark mode toggle with soft deep rose theme
 - 📱 Responsive layout
 
 ---
