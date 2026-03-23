@@ -4,6 +4,10 @@
 
 A modern, full-stack personal finance application designed to make money management approachable, intuitive, and actually enjoyable. Built with a focus on financial literacy and clean design.
 
+Financial literacy is one of the most important — and most underserved — skills people need. Most budgeting tools are either too complicated, too cold, or just not designed with everyday users in mind.
+ 
+Finance Tracker is my attempt to build something that feels good to use — a tool that encourages people to check in on their money regularly, set goals they care about, and feel empowered rather than overwhelmed.
+
 ---
 
 ## 🌐 Live Demo
@@ -106,6 +110,7 @@ FinanceTracker/
 - Email reminders for budget alerts
 - Net worth tracking over time
 - Mobile app version
+- Shared household budgets
 
 ---
 
