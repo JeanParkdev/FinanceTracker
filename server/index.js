@@ -18,12 +18,13 @@ const server = new ApolloServer({
   resolvers,
 });
 
+const allowedOrigins = ['http://localhost:5173', 'https://financetracker-client.onrender.com'];
 const startServer = async () => {
   await connectDB();
   await server.start();
 
 app.use('/graphql', cors({ 
-  origin: 'http://localhost:5173',
+  origin: allowedOrigins,
   credentials: true,
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
