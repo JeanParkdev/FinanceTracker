@@ -3,7 +3,7 @@ import { removeToken } from '../utils/auth.js';
 import { useTheme } from '../utils/ThemeContext.jsx';
 
 const navItems = [
-  { path: '/', label: 'Dashboard' },
+  { path: '/dashboard', label: 'Dashboard' },
   { path: '/transactions', label: 'Transactions' },
   { path: '/budgets', label: 'Budgets' },
   { path: '/goals', label: 'Goals' },

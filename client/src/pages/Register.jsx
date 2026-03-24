@@ -36,7 +36,7 @@ function Register() {
     try {
       const { data } = await register({ variables: formData });
       saveToken(data.register.token);
-      navigate('/');
+      navigate('/dashboard');
     } catch (err) {
       console.error(err);
     }

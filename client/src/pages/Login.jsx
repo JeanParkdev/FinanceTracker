@@ -36,7 +36,7 @@ function Login() {
     try {
       const { data } = await login({ variables: formData });
       saveToken(data.login.token);
-      navigate('/');
+      navigate('/dashboard');
     } catch (err) {
       console.error(err);
     }
