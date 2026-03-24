@@ -1,5 +1,6 @@
 import { useQuery, gql } from '@apollo/client';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { useState } from 'react';
 
 const GET_DASHBOARD = gql`
   query GetDashboard($month: Int, $year: Int) {
@@ -57,8 +58,25 @@ function MetricCard({ label, value, change, changeUp }) {
 
 function Dashboard() {
   const now = new Date();
-  const month = now.getMonth() + 1;
-  const year = now.getFullYear();
+  const [month, setMonth] = useState(now.getMonth() + 1);
+  const [year, setYear] = useState(now.getFullYear());
+
+  const prevMonth = () => {
+    if (month === 1) { 
+      setMonth(12); setYear(y => y - 1);
+    } else {
+      setMonth(m => m - 1);
+    }
+  };
+  const nextMonth = () => {
+    if (month === 12) { 
+      setMonth(1); setYear(y => y + 1);
+    } else {
+      setMonth(m => m + 1);
+    }
+  };
+
+  const monthName = new Date(year, month - 1).toLocaleString('default', { month: 'long', year: 'numeric' });
 
   const { data, loading, error } = useQuery(GET_DASHBOARD, {
     variables: { month, year },
@@ -109,10 +127,12 @@ function Dashboard() {
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', color: 'var(--text-primary)' }}>
           Dashboard
         </h1>
-        <div style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
-          {now.toLocaleString('default', { month: 'long', year: 'numeric' })}
-        </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--text-muted)' }}>
+          <button onClick={prevMonth} className="btn btn-outline" style={{ padding: '4px 10px' }}>‹</button>
+          <span>{monthName}</span>
+        <button onClick={nextMonth} className="btn btn-outline" style={{ padding: '4px 10px' }}>›</button>
       </div>
+    </div>
 
       {budgetAlerts.length > 0 && (
         <div style={{
